@@ -1,5 +1,6 @@
 [flake8]
 exclude =
+  core,
   migrations,
   __pycache__,
   mange.py,
