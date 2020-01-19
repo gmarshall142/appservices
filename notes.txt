@@ -8,6 +8,8 @@ docker-compose run app sh -c "django-admin.py startproject app ."
 docker-compose run app sh -c "python manage.py test"
 # run tests and lint
 docker-compose run app sh -c "python manage.py test && flake8"
+# run tests and remove docker container at the end
+docker-compose run --rm app sh -c "python manage.py test && flake8"
 
 docker-compose run app sh -c "python manage.py startapp core"
 
@@ -15,3 +17,6 @@ docker-compose run app sh -c "python manage.py test"
 
 # create migrations
 docker-compose run app sh -c "python manage.py makemigrations core"
+
+# create user app/module
+docker-compose run --rm app sh -c "python manage.py startapp user"
